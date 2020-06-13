@@ -13,16 +13,17 @@ public class Solution {
 
             while (st.hasMoreTokens()){
                 String word = st.nextToken().toLowerCase();
-                if(fr.get(word)!=null){
+                if(fr.get(word) != null){
                     if(fr.containsKey(word)){
                         int key = fr.get(word) + 1;
-                        fr.replace(word,key);
-                        if(key>max){
-                            max=key;
+                        fr.replace(word, key);
+                        if(key > max){
+                            max = key;
                         }
                     }
+                }else {
+                    fr.put(word,1);
                 }
-                fr.put(word,1);
             }
         }
 
@@ -30,8 +31,11 @@ public class Solution {
 
         while (it.hasNext()){
             String key = it.next();
-            if(fr.get(key)==max)
+            if(fr.get(key) == max){
                 System.out.println(key);
+            }
+
+
         }
     }
 }
